@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Docente {
     private int dni;
@@ -50,5 +51,22 @@ public class Docente {
     }
     public void setAños_experiencia(int años_experiencia){
         this.años_experiencia = años_experiencia;
+    }
+
+    public String toString(){
+        return apellidos+", "+nombres+"("+dni+")";
+    }
+
+    public static void mostrarDocentes(ArrayList<Docente> lista_docente){
+        System.out.println("----------------------------------------------------------");
+        System.out.println("Lista de docentes: ");
+        if (lista_docente.isEmpty() == false){
+            for (int i = 0 ; i < lista_docente.size() ; i++ ){
+                System.out.println(lista_docente.get(i));
+            }
+        }
+        else {
+            System.out.println("No hay docentes registrados.");
+        }
     }
 }
