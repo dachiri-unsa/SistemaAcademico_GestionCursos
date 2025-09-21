@@ -4,20 +4,33 @@ public class Curso {
     private int codigo;
     private String nombre;
     private Docente profesor;
+    private static int contadorCursos = 0;
 
-    public Curso(Scanner sc, int codigo, ArrayList<Docente> lista_docentes){
-        if (lista_docentes.isEmpty() == false){
-            System.out.println("Ingresar el nombre del curso: ");
-            nombre = sc.nextLine();
-            System.out.println("Ingresar el codigo del docente que dicta "+nombre+" : ");
-            profesor = lista_docentes.get(sc.nextInt()-1);
+    public Curso(Scanner sc, ArrayList<Docente> lista_docentes){
+        System.out.println("----------------------------------------------------------");
+        System.out.println("Ingresar el nombre del curso: ");
+        nombre = sc.nextLine().trim();
+
+        System.out.println("Ingresar el codigo del docente que dicta "+nombre+" : ");
+        for (int i = 0; i < lista_docentes.size(); i++){
+            if (lista_docentes.get(i).getCurso_dictado() == null){
+                System.out.println((i+1)+") "+lista_docentes.get(i));
+            }
+        }
+        while(true){
+            int docente_elegido = sc.nextInt();
             sc.nextLine();
-            this.codigo = codigo;
-            System.out.println("EL codigo del curso sera: "+this.codigo);
+            if (docente_elegido < 0 || docente_elegido > lista_docentes.size()){
+                System.out.println("Numero invalido, porfavor ingresar de nuevo");
+            }
+            else {
+                profesor = lista_docentes.get(docente_elegido-1);
+                break;
+            }
         }
-        else{
-            System.out.println("Aun no tienes docentes registrados.\nPor favor registra almenos uno antes de asignarle un curso.");
-        }
+        contadorCursos++;
+        this.codigo = contadorCursos;
+        System.out.println("El codigo del curso sera: "+this.codigo);
     }
 
     public int getCodigo(){
@@ -40,7 +53,7 @@ public class Curso {
         return nombre+" ("+codigo+")";
     }
 
-    public static void mostrarCursos(ArrayList<Docente> lista_cursos){
+    public static void mostrarCursos(ArrayList<Curso> lista_cursos){
         System.out.println("----------------------------------------------------------");
         System.out.println("Lista de cursos: ");
         if (lista_cursos.isEmpty() == false){

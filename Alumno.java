@@ -3,16 +3,18 @@ import java.util.ArrayList;
 public class Alumno {
     private String nombres;
     private String apellidos;
-    private int codigo;
+    private int codigo_alumno;
+    private static int contadorAlumnos = 0;
 
-    public Alumno(Scanner sc, int codigo){
+    public Alumno(Scanner sc){
         System.out.println("----------------------------------------------------------");
         System.out.println("Ingresar nombres: ");
         nombres = sc.nextLine();
         System.out.println("Ingresar apellidos: ");
         apellidos = sc.nextLine();
-        this.codigo = codigo;
-        System.out.println("EL codigo de este alumno sera: "+this.codigo);
+        contadorAlumnos++;
+        codigo_alumno = contadorAlumnos;
+        System.out.println("EL codigo de este alumno sera: "+codigo_alumno);
     }
 
     public String getNombres(){
@@ -28,13 +30,13 @@ public class Alumno {
         this.apellidos = apellidos;
     }
     public int getCodigo(){
-        return codigo;
+        return codigo_alumno;
     }
     public void setCodigo(int codigo){
-        this.codigo = codigo;
+        this.codigo_alumno = codigo;
     }
     public String toString(){
-        return apellidos+", "+nombres+" ("+codigo+")";
+        return apellidos+", "+nombres+" ("+codigo_alumno+")";
     }
 
     public static void mostrarAlumnos(ArrayList<Alumno> lista_alumnos){

@@ -3,10 +3,9 @@ public class Sistema_academico {
     public static void main(String []args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Alumno> lista_alumnos = new ArrayList<Alumno>();
-        int contador_alumno= 1;
         ArrayList<Docente> lista_docentes = new ArrayList<Docente>();
         ArrayList<Curso> lista_cursos = new ArrayList<Curso>();
-        int contador_curso = 1;
+
         System.out.println("¡Bienvenido a sistema academico de gestión de cursos!");
         boolean bucle = true;
         while(bucle){
@@ -20,14 +19,18 @@ public class Sistema_academico {
                 String opcion_1 = sc.nextLine();
                     switch (opcion_1) {
                         case "1":
-                            lista_alumnos.add(new Alumno(sc, contador_alumno));
-                            contador_alumno++;
+                            lista_alumnos.add(new Alumno(sc));
                             break;
                         case "2":
                             lista_docentes.add(new Docente(sc));
                             break;
                         case "3":
-                            lista_cursos.add(new Curso(sc, contador_curso, lista_docentes));
+                            if (lista_docentes.isEmpty() == false){
+                                lista_cursos.add(new Curso(sc, lista_docentes));
+                            }
+                            else {
+                                System.out.println("Aun no tienes docentes registrados.\nPor favor registra almenos uno antes de asignarle un curso.");
+                            }
                             break;
                         case "0":
                             break;
@@ -47,7 +50,7 @@ public class Sistema_academico {
                             Docente.mostrarDocentes(lista_docentes);
                             break;
                         case "3":
-
+                            Curso.mostrarCursos(lista_cursos);
                             break;
                         case "0":
                             break;

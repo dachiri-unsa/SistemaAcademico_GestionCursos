@@ -6,8 +6,10 @@ public class Docente {
     private String apellidos;
     private String especialidad;
     private int años_experiencia;
+    private Curso curso_dictado;
 
     public Docente(Scanner sc){
+        System.out.println("----------------------------------------------------------");
         System.out.println("Ingresar nombres del docente: ");
         nombres = sc.nextLine();
         System.out.println("Ingresar apellidos del docente: ");
@@ -20,6 +22,7 @@ public class Docente {
         System.out.println("Ingresar la cantidad de años de experiencia: ");
         años_experiencia = sc.nextInt();
         sc.nextLine();
+        curso_dictado = null;
     } 
 
     public String getNombres(){
@@ -52,17 +55,29 @@ public class Docente {
     public void setAños_experiencia(int años_experiencia){
         this.años_experiencia = años_experiencia;
     }
-
+    
+    public Curso getCurso_dictado(){ 
+        return curso_dictado;
+    }
+    public void setCurso_dictado(Curso curso){
+        this.curso_dictado = curso;
+    }
+        
     public String toString(){
-        return apellidos+", "+nombres+"("+dni+")";
+        if (curso_dictado != null){
+            return apellidos+", "+nombres+"("+dni+"). Curso dictado: "+curso_dictado;
+        }
+        else {
+            return apellidos+", "+nombres+"("+dni+"). Sin curso a dictar";
+        }
     }
 
-    public static void mostrarDocentes(ArrayList<Docente> lista_docente){
+    public static void mostrarDocentes(ArrayList<Docente> lista_docentes){
         System.out.println("----------------------------------------------------------");
         System.out.println("Lista de docentes: ");
-        if (lista_docente.isEmpty() == false){
-            for (int i = 0 ; i < lista_docente.size() ; i++ ){
-                System.out.println(lista_docente.get(i));
+        if (lista_docentes.isEmpty() == false){
+            for (int i = 0 ; i < lista_docentes.size() ; i++ ){
+                System.out.println(lista_docentes.get(i));
             }
         }
         else {
