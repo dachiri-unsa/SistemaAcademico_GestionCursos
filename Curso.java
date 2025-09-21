@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 public class Curso {
-    private int codigo;
+    private int codigo_curso;
     private String nombre;
     private Docente profesor;
     private static int contadorCursos = 0;
@@ -29,15 +29,15 @@ public class Curso {
             }
         }
         contadorCursos++;
-        this.codigo = contadorCursos;
-        System.out.println("El codigo del curso sera: "+this.codigo);
+        this.codigo_curso = contadorCursos;
+        System.out.println("El codigo del curso sera: "+this.codigo_curso);
     }
 
     public int getCodigo(){
-        return codigo;
+        return codigo_curso;
     }
     public void setCodigo(int codigo){
-        this.codigo = codigo;
+        this.codigo_curso = codigo;
     }
     public String getNombre(){
         return nombre;
@@ -50,7 +50,7 @@ public class Curso {
     }
 
     public String toString(){
-        return nombre+" ("+codigo+")";
+        return nombre+" ("+codigo_curso+")";
     }
 
     public static void mostrarCursos(ArrayList<Curso> lista_cursos){
