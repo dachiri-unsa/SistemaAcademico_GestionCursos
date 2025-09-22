@@ -5,6 +5,7 @@ public class Alumno {
     private String apellidos;
     private int codigo_alumno;
     private static int contadorAlumnos = 0;
+    private ArrayList<Curso> cursos_matriculados;
 
     public Alumno(Scanner sc){
         System.out.println("----------------------------------------------------------");
@@ -15,6 +16,10 @@ public class Alumno {
         contadorAlumnos++;
         codigo_alumno = contadorAlumnos;
         System.out.println("EL codigo de este alumno sera: "+codigo_alumno);
+    }
+
+    public void CursosMatriculados(ArrayList<Curso> lista_cursos) {
+        this.cursos_matriculados=lista_cursos;
     }
 
     public String getNombres(){

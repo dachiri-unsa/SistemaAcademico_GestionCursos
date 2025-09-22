@@ -5,6 +5,7 @@ public class Curso {
     private String nombre;
     private Docente profesor;
     private static int contadorCursos = 0;
+    private int nota1, nota2, nota3;
 
     public Curso(Scanner sc, ArrayList<Docente> lista_docentes){
         System.out.println("----------------------------------------------------------");
@@ -39,6 +40,24 @@ public class Curso {
     public void setCodigo(int codigo){
         this.codigo_curso = codigo;
     }
+    public double getNota1(){
+        return nota1;
+    }
+    public void setNota1(int nota){
+        this.nota1 = nota;
+    }
+    public double getNota2(){
+        return nota2;
+    }
+    public void setNota2(int nota){
+        this.nota2 = nota;
+    }
+    public double getNota3(){
+        return nota3;
+    }
+    public void setNota3(int nota){
+        this.nota3 = nota;
+    }
     public String getNombre(){
         return nombre;
     }
@@ -51,6 +70,16 @@ public class Curso {
 
     public String toString(){
         return nombre+" ("+codigo_curso+")";
+    }
+
+    public void Notas(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Nota 1:");
+        nota1=sc.nextInt();
+        System.out.println("Nota 2:");
+        nota2=sc.nextInt();
+        System.out.println("Nota 3:");
+        nota3=sc.nextInt();
     }
 
     public static void mostrarCursos(ArrayList<Curso> lista_cursos){
