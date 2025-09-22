@@ -21,6 +21,9 @@ public class Alumno {
     public void CursosMatriculados(ArrayList<Curso> lista_cursos) {
         this.cursos_matriculados=lista_cursos;
     }
+    public ArrayList<Curso> getCursos_matriculados(){
+        return cursos_matriculados;
+    }
 
     public String getNombres(){
         return nombres;

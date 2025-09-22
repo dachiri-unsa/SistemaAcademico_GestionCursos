@@ -4,13 +4,14 @@ import java.util.Scanner;
 public class Calificacion {
     private Alumno alumno_actual;
     private ArrayList<Curso> cursos_matriculados;
+    private static ArrayList<Double> promedio_alumnos;
 // codigo alumno
 // "" curso
 // registrar notas
     public Calificacion(ArrayList<Alumno> lista_alumnos, Scanner sc){
         System.out.println("Ingrese codigo del alumno: ");
         alumno_actual = lista_alumnos.get(sc.nextInt()-1);
-        alumno_actual.CursosMatriculados(cursos_matriculados);
+        cursos_matriculados=alumno_actual.getCursos_matriculados();
         for (int i=0;i<cursos_matriculados.size();i++){
             System.out.println("Notas del curso de "+cursos_matriculados.get(i));
             cursos_matriculados.get(i).Notas();
@@ -28,6 +29,8 @@ public class Calificacion {
         for (int i=0;i<cursos_matriculados.size();i++){
             suma+=promedios.get(i);
         }
-        return suma/cursos_matriculados.size();
+        double promedio_final=suma/cursos_matriculados.size();
+        promedio_alumnos.add(promedio_final);
+        return promedio_final;
     }
 }

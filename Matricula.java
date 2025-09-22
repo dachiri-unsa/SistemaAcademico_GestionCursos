@@ -8,7 +8,6 @@ public class Matricula {
         System.out.println("Ingrese su codigo: ");
         alumno_actual = lista_alumnos.get(sc.nextInt()-1);
         sc.nextLine();
-        alumno_actual.CursosMatriculados(cursos_matriculados);
         Curso.mostrarCursos(lista_cursos);
         while (true){
             System.out.println("Ingrese codigo del curso al que desee matricularse: ");
