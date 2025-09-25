@@ -6,6 +6,7 @@ public class Alumno {
     private int codigo_alumno;
     private static int contadorAlumnos = 0;
     private ArrayList<Curso> cursos_matriculados;
+    private String aprueba;
 
     public Alumno(Scanner sc){
         System.out.println("----------------------------------------------------------");

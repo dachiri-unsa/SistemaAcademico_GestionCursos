@@ -5,7 +5,8 @@ public class Sistema_academico {
         ArrayList<Alumno> lista_alumnos = new ArrayList<Alumno>();
         ArrayList<Docente> lista_docentes = new ArrayList<Docente>();
         ArrayList<Curso> lista_cursos = new ArrayList<Curso>();
-
+        Matricula matricular;
+        Calificacion calificaciones=new Calificacion();
         System.out.println("¡Bienvenido a sistema academico de gestión de cursos!");
         boolean bucle = true;
         while(bucle){
@@ -60,16 +61,18 @@ public class Sistema_academico {
                     }
                     break;
                 case "3":
-
+                new Matricula(lista_alumnos,lista_cursos,sc);
                     break;
                 case "4":
-
+                calificaciones.setCalificacion(lista_alumnos, sc);
                     break;
                 case "5":
-
+                Calificacion.PromediosFinales(lista_alumnos, sc);
+                System.out.println(calificaciones.Promedio(sc));
                     break;
                 case "6":
-
+                calificaciones.Promedio(sc);
+                calificaciones.Estadisticas(lista_alumnos);
                     break;
                 case "0":
                     bucle = false;
