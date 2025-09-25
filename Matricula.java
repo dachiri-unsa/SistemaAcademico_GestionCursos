@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Matricula {
     private Alumno alumno_actual;
-    private ArrayList<Curso> cursos_matriculados;
+    private ArrayList<Curso> cursos_matriculados = new ArrayList<>();
 
     public Matricula(ArrayList<Alumno> lista_alumnos, ArrayList<Curso> lista_cursos, Scanner sc){
         System.out.println("Ingrese su codigo: ");
@@ -18,7 +18,6 @@ public class Matricula {
                 curso_seleccionado = sc.nextInt()-1;
                 sc.nextLine();
             }
-            alumno_actual.CursosMatriculados(cursos_matriculados);
             cursos_matriculados.add(lista_cursos.get(curso_seleccionado));
             System.out.println("¿Desea matricularse a otro curso? (s/n)");
             String rpta = sc.next();

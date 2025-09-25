@@ -4,20 +4,21 @@ import java.util.Scanner;
 public class Calificacion {
     private Alumno alumno_actual;
     private ArrayList<Curso> cursos_matriculados;
-    private static ArrayList<Double> promedio_alumnos;
+    private static ArrayList<Double> promedio_alumnos = new ArrayList<>();
 // codigo alumno
 // "" curso
 // registrar notas
     public Calificacion(){
         
     }
+
     public void setCalificacion(ArrayList<Alumno> lista_alumnos, Scanner sc){
         System.out.println("Ingrese codigo del alumno: ");
         alumno_actual = lista_alumnos.get(sc.nextInt()-1);
         cursos_matriculados=alumno_actual.getCursos_matriculados();
         for (int i=0;i<cursos_matriculados.size();i++){
             System.out.println("Notas del curso de "+cursos_matriculados.get(i));
-            cursos_matriculados.get(i).Notas();
+            cursos_matriculados.get(i).Notas(sc);
             System.out.println("----------------------------------------------------------");
         }
     }

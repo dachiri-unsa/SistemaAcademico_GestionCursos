@@ -14,18 +14,19 @@ public class Curso {
 
         System.out.println("Ingresar el codigo del docente que dicta "+nombre+" : ");
         for (int i = 0; i < lista_docentes.size(); i++){
-            if (lista_docentes.get(i).getCurso_dictado() == null){
+            if (lista_docentes.get(i).getnombreCurso_dictado() == null){
                 System.out.println((i+1)+") "+lista_docentes.get(i));
             }
         }
         while(true){
-            int docente_elegido = sc.nextInt();
+            int docente_elegido = sc.nextInt()-1;
             sc.nextLine();
-            if (docente_elegido < 0 || docente_elegido > lista_docentes.size()){
+            if (docente_elegido < 0 || docente_elegido >= lista_docentes.size()){
                 System.out.println("Numero invalido, porfavor ingresar de nuevo");
             }
             else {
-                profesor = lista_docentes.get(docente_elegido-1);
+                profesor = lista_docentes.get(docente_elegido);
+                lista_docentes.get(docente_elegido).setnombreCurso_dictado(nombre);
                 break;
             }
         }
@@ -72,14 +73,16 @@ public class Curso {
         return nombre+" ("+codigo_curso+")";
     }
 
-    public void Notas(){
-        Scanner sc=new Scanner(System.in);
+    public void Notas(Scanner sc){
         System.out.println("Nota 1:");
         nota1=sc.nextInt();
+        sc.nextLine();
         System.out.println("Nota 2:");
         nota2=sc.nextInt();
+        sc.nextLine();
         System.out.println("Nota 3:");
         nota3=sc.nextInt();
+        sc.nextLine();
     }
 
     public static void mostrarCursos(ArrayList<Curso> lista_cursos){

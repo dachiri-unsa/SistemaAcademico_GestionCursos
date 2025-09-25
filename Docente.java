@@ -6,7 +6,7 @@ public class Docente {
     private String apellidos;
     private String especialidad;
     private int años_experiencia;
-    private Curso curso_dictado;
+    private String nombreCurso_dictado;
 
     public Docente(Scanner sc){
         System.out.println("----------------------------------------------------------");
@@ -22,7 +22,7 @@ public class Docente {
         System.out.println("Ingresar la cantidad de años de experiencia: ");
         años_experiencia = sc.nextInt();
         sc.nextLine();
-        curso_dictado = null;
+        nombreCurso_dictado = null;
     } 
 
     public String getNombres(){
@@ -56,16 +56,16 @@ public class Docente {
         this.años_experiencia = años_experiencia;
     }
     
-    public Curso getCurso_dictado(){ 
-        return curso_dictado;
+    public String getnombreCurso_dictado(){ 
+        return nombreCurso_dictado;
     }
-    public void setCurso_dictado(Curso curso){
-        this.curso_dictado = curso;
+    public void setnombreCurso_dictado(String curso){
+        this.nombreCurso_dictado = curso;
     }
         
     public String toString(){
-        if (curso_dictado != null){
-            return apellidos+", "+nombres+"("+dni+"). Curso dictado: "+curso_dictado;
+        if (nombreCurso_dictado != null){
+            return apellidos+", "+nombres+"("+dni+"). Curso dictado: "+nombreCurso_dictado;
         }
         else {
             return apellidos+", "+nombres+"("+dni+"). Sin curso a dictar";

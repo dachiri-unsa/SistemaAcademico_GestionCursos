@@ -5,13 +5,12 @@ public class Sistema_academico {
         ArrayList<Alumno> lista_alumnos = new ArrayList<Alumno>();
         ArrayList<Docente> lista_docentes = new ArrayList<Docente>();
         ArrayList<Curso> lista_cursos = new ArrayList<Curso>();
-        Matricula matricular;
         Calificacion calificaciones=new Calificacion();
         System.out.println("¡Bienvenido a sistema academico de gestión de cursos!");
         boolean bucle = true;
         while(bucle){
             System.out.println("Seleccione una opcion:");
-            System.out.println("1) Ingresar datos\n2) Mostrar base de datos\n3) Matricular alumno en curso\n4) Registrar notas de alumno\n5) Calcular promedio final de un alumno\n6) Mostrar estadisticas de alumnos\n0) Cerrar");
+            System.out.println("1) Ingresar datos\n2) Mostrar base de datos\n3) Matricular alumno en curso\n4) Registrar notas de alumno\n5) Calcular promedio final de un alumno\n6) Mostrar estadisticas de alumnos\n7) Promedio mas alto y estadisticas de todos\n0) Cerrar");
             String opcion = sc.nextLine();
             switch (opcion) {
                 case "1":
@@ -61,18 +60,21 @@ public class Sistema_academico {
                     }
                     break;
                 case "3":
-                new Matricula(lista_alumnos,lista_cursos,sc);
+                    new Matricula(lista_alumnos,lista_cursos,sc);
                     break;
                 case "4":
-                calificaciones.setCalificacion(lista_alumnos, sc);
+                    calificaciones.setCalificacion(lista_alumnos, sc);
                     break;
                 case "5":
-                Calificacion.PromediosFinales(lista_alumnos, sc);
-                System.out.println(calificaciones.Promedio(sc));
+                    Calificacion.PromediosFinales(lista_alumnos, sc);
                     break;
                 case "6":
-                calificaciones.Promedio(sc);
-                calificaciones.Estadisticas(lista_alumnos);
+                    System.out.println(calificaciones.Promedio(sc));
+                    Calificacion.Estadisticas(lista_alumnos);
+                    break;
+                case "7":
+                    System.out.println("EL alumno con el promedio mas alto es: "+Calificacion.Promedio_Más_Alto(lista_alumnos));
+                    Calificacion.Estadisticas(lista_alumnos);
                     break;
                 case "0":
                     bucle = false;
