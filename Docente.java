@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Docente {
-    private int dni;
+    private String dni;
     private String nombres;
     private String apellidos;
     private String especialidad;
@@ -15,12 +15,12 @@ public class Docente {
         System.out.println("Ingresar apellidos del docente: ");
         apellidos = sc.nextLine();
         System.out.println("Ingresar el dni del docente: ");
-        dni = sc.nextInt();
+        validarDNI();
         sc.nextLine();
         System.out.println("Ingresar especialidad del docente: ");
         especialidad = sc.nextLine();
         System.out.println("Ingresar la cantidad de años de experiencia: ");
-        años_experiencia = sc.nextInt();
+        verificarAñosExperiencia();
         sc.nextLine();
         nombreCurso_dictado = null;
     } 
@@ -37,10 +37,10 @@ public class Docente {
     public void setApellidos(String apellidos){
         this.apellidos = apellidos;
     }
-    public int getDni(){
+    public String getDni(){
         return dni;
     }
-    public void setDni(int dni){
+    public void setDni(String dni){
         this.dni = dni;
     }
     public String getEspecialidad(){
@@ -62,7 +62,7 @@ public class Docente {
     public void setnombreCurso_dictado(String curso){
         this.nombreCurso_dictado = curso;
     }
-        
+
     public String toString(){
         if (nombreCurso_dictado != null){
             return apellidos+", "+nombres+"("+dni+"). Curso dictado: "+nombreCurso_dictado;
@@ -71,13 +71,30 @@ public class Docente {
             return apellidos+", "+nombres+"("+dni+"). Sin curso a dictar";
         }
     }
-
+    public void verificarAñosExperiencia(){
+        Scanner sc = new Scanner(System.in);
+        int años_experiencia = sc.nextInt();
+        while(años_experiencia <=0){
+            System.out.println("Años de experiencia incorrectos, ingrese de nuevo los años de experiencia");
+            años_experiencia = sc.nextInt();
+        }
+    }
+    public void validarDNI () {
+        Scanner sc = new Scanner(System.in);
+        dni= sc.next();
+        dni= dni.trim();
+        while(!dni.matches("^\\d{8}$")){
+            System.out.println("DNI invalido, ingreselo de nuevo");
+            dni= sc.next();
+            dni= dni.trim();
+        }
+    }
     public static void mostrarDocentes(ArrayList<Docente> lista_docentes){
         System.out.println("----------------------------------------------------------");
         System.out.println("Lista de docentes: ");
-        if (lista_docentes.isEmpty() == false){
-            for (int i = 0 ; i < lista_docentes.size() ; i++ ){
-                System.out.println(lista_docentes.get(i));
+        if (!lista_docentes.isEmpty()){
+            for (Docente docente : lista_docentes) {
+                System.out.println(docente);
             }
         }
         else {
