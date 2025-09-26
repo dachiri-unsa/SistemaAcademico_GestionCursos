@@ -84,7 +84,7 @@ public class Docente {
         dni= sc.next();
         dni= dni.trim();
         while(!dni.matches("^\\d{8}$")){
-            System.out.println("DNI invalido, ingrese de nuevo");
+            System.out.println("DNI invalido, ingreselo de nuevo");
             dni= sc.next();
             dni= dni.trim();
         }
