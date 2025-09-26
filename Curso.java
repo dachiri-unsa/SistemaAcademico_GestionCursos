@@ -74,15 +74,31 @@ public class Curso {
     }
 
     public void Notas(Scanner sc){
+        System.out.println("Ingrese sus notas: ");
         System.out.println("Nota 1:");
         nota1=sc.nextInt();
         sc.nextLine();
+        while (nota1 < 0 || nota1 > 20) {
+            System.out.println("Nota invalida. Ingresar nota entre el 0 y 20");
+            nota1=sc.nextInt();
+            sc.nextLine();
+        }
         System.out.println("Nota 2:");
         nota2=sc.nextInt();
         sc.nextLine();
+        while (nota2 < 0 || nota2 > 20) {
+            System.out.println("Nota invalida. Ingresar nota entre el 0 y 20");
+            nota2=sc.nextInt();
+            sc.nextLine();
+        }
         System.out.println("Nota 3:");
         nota3=sc.nextInt();
         sc.nextLine();
+        while (nota2 < 0 || nota2 > 20) {
+            System.out.println("Nota invalida. Ingresar nota entre el 0 y 20");
+            nota2=sc.nextInt();
+            sc.nextLine();
+        }
     }
 
     public static void mostrarCursos(ArrayList<Curso> lista_cursos){

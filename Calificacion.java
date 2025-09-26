@@ -65,7 +65,7 @@ public class Calificacion {
                     System.out.println("    Aprobado!!");
                 }
                 else {
-                    System.out.println("    Desaprobado :( )");
+                    System.out.println("    Desaprobado");
                 }
             }
         }
